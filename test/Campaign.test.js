@@ -39,4 +39,12 @@ beforeEach(async()=>{
       const manager=await campaign.methods.manager().call();
       assert.equal(manager,accounts[0]);
   })
+  it('allow people to contribute money and mark them as approvers',async()=>{
+      await campaign.methods.contribute().send({
+        from:accounts[1],
+        value:'200'
+      });
+      const isApprover=await campaign.methods.approvers(accounts[1]).call();
+      assert(isApprover);
+  });
 });
