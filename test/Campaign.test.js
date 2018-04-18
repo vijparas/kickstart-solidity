@@ -26,7 +26,7 @@ beforeEach(async()=>{
 
   const addresses=await factory.methods.getDeoloyedCampaigns().call();
   campaignAddress=addresses[0];
-  campaign=await new web3.eth.Contract(JSON.parse(compiledFactory.interface),campaignAddress);
+  campaign=await new web3.eth.Contract(JSON.parse(compiledCampaign.interface),campaignAddress);
 });
   describe('Campaign Contract',()=>{
 // it is the the test that will be executed
@@ -35,4 +35,8 @@ beforeEach(async()=>{
     assert.ok(factory.options.address);
     assert.ok(campaign.options.address);
   });
+  it('the creater of campaign should be the manager of contract',async()=>{
+      const manager=await campaign.methods.manager().call();
+      assert.equal(manager,accounts[0]);
+  })
 });
