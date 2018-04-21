@@ -1,6 +1,5 @@
 const HDWalletProvider=require('truffle-hdwallet-provider');
 const Web3=require('web3');
-<<<<<<< HEAD
 const compiledFactory=require('./build/CampaignFactory.json');
 
 //const {interface,bytecode}=require('./compile.js');
@@ -27,7 +26,6 @@ try{
 catch(error){
   console.log(error);
 }
-
 
 
 };
