@@ -63,4 +63,16 @@ beforeEach(async()=>{
       assert(error);
     }
   });
+
+  it('allows manager of campaign to create request',async()=>{
+    await campaign.methods.createRequest(
+      'this is a test request','300',accounts[3]
+
+  ).send({
+      'from':accounts[0],
+      'gas':'1000000'
+    })
+     var request=await campaign.methods.requests('0').call();
+     assert(request);
+  });
 });

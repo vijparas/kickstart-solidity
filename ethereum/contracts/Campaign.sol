@@ -42,7 +42,7 @@ contract Campaign{
     approversCount++;
     }
     function createRequest(string description,uint value,address recipient)public restricted{
-    // we dont have to add approvers in struct as it is of reference typ
+    // we dont have to add approvers in struct as it is of reference type
         Request memory newRequest=Request({
             description:description,
            value:value,
@@ -65,5 +65,5 @@ contract Campaign{
         request.complete=true;
         request.recipient.transfer(request.value);
     }
-  
+
    }
