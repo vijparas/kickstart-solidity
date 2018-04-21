@@ -47,8 +47,20 @@ beforeEach(async()=>{
       // here we are calling the approvers method. approvers was a mapping with (addresss=>bool) so if address
       // is an approver it will return true otherwise false. Mappings always does checking in constant time
       //as it works on hash.
-      
+
       const isApprover=await campaign.methods.approvers(accounts[1]).call();
       assert(isApprover);
+  });
+
+  it('requires minimum contribution',async()=>{
+    try{
+      await campaign.methods.contribute().send({
+        from:accounts[2],
+        value:'89'
+      })
+    }
+    catch(error){
+      assert(error);
+    }
   });
 });
