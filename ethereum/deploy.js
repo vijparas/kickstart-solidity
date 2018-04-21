@@ -1,8 +1,12 @@
 const HDWalletProvider=require('truffle-hdwallet-provider');
 const Web3=require('web3');
+<<<<<<< HEAD
 const compiledFactory=require('./build/CampaignFactory.json');
 
 //const {interface,bytecode}=require('./compile.js');
+=======
+const {interface,bytecode}=require('./compile.js');
+>>>>>>> 8d0545abcf42704577c1866da105e41dfa8eaa22
 const provider=new HDWalletProvider(
 'trap lesson energy gauge recipe attract black maid pilot calm capital benefit',
 'https://rinkeby.infura.io/SfKo0rixhccsqkUN3qF8'
@@ -14,6 +18,7 @@ const deploy = async ()=>{
 
   const accounts=await web3.eth.getAccounts();
   console.log('Attempting to deployy contract with account '+accounts[0]);
+<<<<<<< HEAD
 try{
   const result=await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
   .deploy({data:compiledFactory.bytecode})
@@ -25,6 +30,13 @@ catch(error){
   console.log(error);
 }
 
+=======
+  const result=await new web3.eth.Contract(JSON.parse(interface))
+  .deploy({data:bytecode})
+  .send({gas:'1000000',from:accounts[0]});
+  console.log(interface);
+  console.log("Account deployed to "+result.options.address);
+>>>>>>> 8d0545abcf42704577c1866da105e41dfa8eaa22
 
 };
 deploy();
