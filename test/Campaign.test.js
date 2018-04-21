@@ -75,4 +75,39 @@ beforeEach(async()=>{
      var request=await campaign.methods.requests('0').call();
      assert(request);
   });
+  it('end to end test',async()=>{
+    await campaign.methods.contribute().send({
+      'from':accounts[3],
+      'value':web3.utils.toWei('10','ether')
+    });
+    const isApprover=await campaign.methods.approvers(accounts[3]).call();
+    assert(isApprover);
+    await campaign.methods
+    .createRequest('Another test for checking if request is created',web3.utils.toWei('5','ether'),accounts[1]).send({
+      'from':accounts[0],
+      'gas':'1000000'
+    });
+    var requests=await campaign.methods.requests(0).call();
+    assert.equal(requests.description,'Another test for checking if request is created');
+
+    await campaign.methods.approveRequest(0).send({
+      'from':accounts[3],
+      'gas':'100000'
+    });
+    let intialBalance=await web3.eth.getBalance(accounts[1]);
+    intialBalance=web3.utils.fromWei(intialBalance,'ether');
+    intialBalance=parseFloat(intialBalance);
+  await campaign.methods.finalizeRequest(0).send({
+    'from':accounts[0],
+    'gas':'1000000'
+  });
+  let finalBalance=await web3.eth.getBalance(accounts[1]);
+  finalBalance=web3.utils.fromWei(finalBalance,'ether');
+  finalBalance=parseFloat(finalBalance);
+  assert(finalBalance>intialBalance);
+
+
+
+
+  });
 });
