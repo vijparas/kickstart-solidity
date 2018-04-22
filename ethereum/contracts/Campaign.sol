@@ -1,12 +1,12 @@
 pragma solidity ^0.4.17;
 contract CampaignFactory{
-    address[] public deployedCampaign;
+    address[] public deployedCampaigns;
     function createCampaign(uint minimumContribution) public{
     address newCampaignAddress= new Campaign(minimumContribution,msg.sender);
-    deployedCampaign.push(newCampaignAddress);
+    deployedCampaigns.push(newCampaignAddress);
     }
     function getDeoloyedCampaigns() public view returns(address[]){
-        return deployedCampaign;
+        return deployedCampaigns;
     }
 }
 contract Campaign{
@@ -23,8 +23,8 @@ contract Campaign{
     uint public minimumContribution;
  //   address[] public approvers;
  //refracting to mapping
- mapping(address=>bool) public approvers;
- uint public approversCount;
+    mapping(address=>bool) public approvers;
+    uint public approversCount;
     Request[] public requests;
     modifier restricted(){
         require(msg.sender==manager);
@@ -37,9 +37,8 @@ contract Campaign{
     }
     function contribute() public payable{
         require(msg.value>minimumContribution);
-
-    approvers[msg.sender]=true;
-    approversCount++;
+        approvers[msg.sender]=true;
+        approversCount++;
     }
     function createRequest(string description,uint value,address recipient)public restricted{
     // we dont have to add approvers in struct as it is of reference type
