@@ -55,7 +55,23 @@ var ShowCampaigns = function (_Component) {
   }
 
   (0, _createClass3.default)(ShowCampaigns, [{
-    key: 'componentDidMount',
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      }, this.props.campaigns[2]);
+    }
+  }], [{
+    key: 'getInitialProps',
+
+    //next doesnot execute componentDidMount function on server side
+    // async componentDidMount(){
+    //
+    //  //console.log(campaigns);
+    // }
     value: function () {
       var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
         var campaigns;
@@ -68,8 +84,7 @@ var ShowCampaigns = function (_Component) {
 
               case 2:
                 campaigns = _context.sent;
-
-                console.log(campaigns);
+                return _context.abrupt('return', { campaigns: campaigns });
 
               case 4:
               case 'end':
@@ -79,26 +94,16 @@ var ShowCampaigns = function (_Component) {
         }, _callee, this);
       }));
 
-      function componentDidMount() {
+      function getInitialProps() {
         return _ref.apply(this, arguments);
       }
 
-      return componentDidMount;
+      return getInitialProps;
     }()
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('div', {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 9
-        }
-      }, 'Campaign Index');
-    }
   }]);
 
   return ShowCampaigns;
 }(_react.Component);
 
 exports.default = ShowCampaigns;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzXFxpbmRleC5qcyJdLCJuYW1lcyI6WyJSZWFjdCIsIkNvbXBvbmVudCIsImZhY3RvcnkiLCJTaG93Q2FtcGFpZ25zIiwibWV0aG9kcyIsImdldERlb2xveWVkQ2FtcGFpZ25zIiwiY2FsbCIsImNhbXBhaWducyIsImNvbnNvbGUiLCJsb2ciXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxBQUFPLEFBQU87Ozs7QUFDZCxBQUFPLEFBQVk7Ozs7Ozs7OztJQUNiLEE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7dUJBRXFCLGtCQUFBLEFBQVEsUUFBUixBQUFnQix1QkFBaEIsQUFBdUMsQTs7bUJBQXpEO0EscUNBQ047O3dCQUFBLEFBQVEsSUFBUixBQUFZOzs7Ozs7Ozs7Ozs7Ozs7Ozs7NkJBRUwsQUFDTjs2QkFBTyxjQUFBOztvQkFBQTtzQkFBQTtBQUFBO0FBQUEsT0FBQSxFQUFQLEFBQU8sQUFDUjs7Ozs7QUFQeUIsQSxBQVM1Qjs7a0JBQUEsQUFBZSIsImZpbGUiOiJpbmRleC5qcz9lbnRyeSIsInNvdXJjZVJvb3QiOiJEOi9ibG9ja2NoYWluL3dvcmtzcGFjZS9raWNrc3RhcnQtc29saWRpdHkifQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzXFxpbmRleC5qcyJdLCJuYW1lcyI6WyJSZWFjdCIsIkNvbXBvbmVudCIsImZhY3RvcnkiLCJTaG93Q2FtcGFpZ25zIiwicHJvcHMiLCJjYW1wYWlnbnMiLCJtZXRob2RzIiwiZ2V0RGVvbG95ZWRDYW1wYWlnbnMiLCJjYWxsIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsQUFBTyxBQUFPOzs7O0FBQ2QsQUFBTyxBQUFZOzs7Ozs7Ozs7SSxBQUNiOzs7Ozs7Ozs7Ozs2QkFVSSxBQUNOOzZCQUFPLGNBQUE7O29CQUFBO3NCQUFBLEFBQU07QUFBTjtBQUFBLE9BQUEsT0FBTSxBQUFLLE1BQUwsQUFBVyxVQUF4QixBQUFPLEFBQU0sQUFBcUIsQUFDbkM7OztTQVhEOztBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7Ozs7Ozs7O3VCQUU2QixrQkFBQSxBQUFRLFFBQVIsQUFBZ0IsdUIsQUFBaEIsQUFBdUM7O21CQUF6RDtBO2lEQUNDLEVBQUMsVyxBQUFELEFBQVc7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFSRyxBLEFBYzVCOztrQkFBQSxBQUFlIiwiZmlsZSI6ImluZGV4LmpzP2VudHJ5Iiwic291cmNlUm9vdCI6IkQ6L2Jsb2NrY2hhaW4vd29ya3NwYWNlL2tpY2tzdGFydC1zb2xpZGl0eSJ9
