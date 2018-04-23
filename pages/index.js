@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import factory from'../ethereum/factory';
 import {Card} from 'semantic-ui-react';
-
+import {Button} from 'semantic-ui-react';
 class ShowCampaigns extends Component{
   //next doesnot execute componentDidMount function on server side
   // async componentDidMount(){
@@ -26,8 +26,9 @@ class ShowCampaigns extends Component{
   render(){
     return <div>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
-    {this.renderCampaigns()}</div>;
-    // return <div>{this.renderCampaigns()}</div>;
+    {this.renderCampaigns()}
+      <Button content='Create Campaign' icon='add circle' primary />
+      </div>
   }
 }
 export default ShowCampaigns;
