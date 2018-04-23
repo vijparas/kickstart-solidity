@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import factory from'../ethereum/factory';
 import {Card} from 'semantic-ui-react';
 import {Button} from 'semantic-ui-react';
+import Layout from '../components/Layout'
 class ShowCampaigns extends Component{
   //next doesnot execute componentDidMount function on server side
   // async componentDidMount(){
@@ -24,15 +25,15 @@ class ShowCampaigns extends Component{
     return <Card.Group items={campaigns} />;
   }
   render(){
-    return <div>
+    return (
+      <Layout >
+      <div>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
-<<<<<<< HEAD
   <h3>Open Campaigns</h3>
-=======
->>>>>>> 4a2d811e0172682254d985c7f99d0e67960b30db
     {this.renderCampaigns()}
       <Button content='Create Campaign' icon='add circle' primary />
       </div>
-  }
+      </Layout>
+  )}
 }
 export default ShowCampaigns;
