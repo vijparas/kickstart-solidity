@@ -21,7 +21,7 @@ contract Campaign{
     }
     address public manager;
     uint public minimumContribution;
- //   address[] public approvers;
+ //   address[] public approvers;``
  //refracting to mapping
     mapping(address=>bool) public approvers;
     uint public approversCount;
