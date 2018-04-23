@@ -26,7 +26,10 @@ class ShowCampaigns extends Component{
   render(){
     return <div>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
+<<<<<<< HEAD
   <h3>Open Campaigns</h3>
+=======
+>>>>>>> 4a2d811e0172682254d985c7f99d0e67960b30db
     {this.renderCampaigns()}
       <Button content='Create Campaign' icon='add circle' primary />
       </div>
