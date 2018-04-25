@@ -21,7 +21,7 @@
 ### Deployment Step
 ##### To deploy contract to network go to ethereum folder and use npm run deploy.js.
 
-### Installtion Steps
+### Installation Steps
 ##### To install Node modules go to project folder and execute command  npm install
 
 ### Tests
