@@ -14,6 +14,13 @@
 ##### NPM
 ##### Metamask Browser Plugin
 
+###  Compilation Step
+#####  To compile Smart Contracts we need to recompile our Solidity Files. To compile solidity files go to ethereum folder and 
+#####  use command npm run compile.js. Compiled solidity files can be found inside build directory.
+
+### Deployment Step
+##### To deploy contract to network go to ethereum folder and use npm run deploy.js.
+
 ## Installtion Steps
 ##### To install Node modules run npm install
 
