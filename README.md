@@ -21,11 +21,12 @@
 ### Deployment Step
 ##### To deploy contract to network go to ethereum folder and use npm run deploy.js.
 
-## Installtion Steps
-##### To install Node modules run npm install
+### Installtion Steps
+##### To install Node modules go to project folder and execute command  npm install
 
-## To run test
-##### npm run test
+### Tests
+##### Tests are accessible inside test directory.
+##### To execute tests go to project folder and execute command npm run test.
 
 ##### Application will be accessible at http://localhost:3000
 
