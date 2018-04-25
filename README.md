@@ -1,4 +1,4 @@
-#Kickstart Campaign Smart Contract
+# Kickstart Campaign Smart Contract
 
 ## Introduction
 ### Kickstart is a Ethereum Based Project in which we are building smart contract to enable campaign funding.  Whenever a person wants to raise money for his project he can create a new campaign along with minimum contribution required. Any person willing to be a contributor can transfer ethereum from his account and will become a contributor. Whenever Campaign Manager needs to withdraw money from the project pool he has to raise a withdrawal request mentioning amount and address of the service provider. The contributors need to provide conscious for the withdrawl request. Conscious will be reached when atleast 50% of contributors votes in favor. Once conscious has been received the ether will be transferred to the account of service provider provided while create withdraw request.
@@ -15,5 +15,12 @@
 ### Metamask Browser Plugin
 
 ## Installtion Steps
-### To install Node modules run - npm install
+### To install Node modules run npm install
+
+## To run application
+### npm run dev
+
+## To run test
+### npm run test
+
 
