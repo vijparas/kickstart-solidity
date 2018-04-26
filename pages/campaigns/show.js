@@ -1,11 +1,9 @@
-import React,{Component} from 'react'
-import Layout from '../../components/Layout'
+import React, { Component } from "react";
+import Layout from "../../components/Layout";
 
-class CampaignShow extends Component{
-  render(){
-    return <Layout>
-
-    </Layout>
+class CampaignShow extends Component {
+  render() {
+    return <Layout />;
   }
 }
-export default CampaignShow
+export default CampaignShow;
