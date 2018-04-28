@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Layout from "../../components/Layout";
 import Campaign from "../../ethereum/campaign";
-import { Card,Grid } from "semantic-ui-react";
-import web3 from 'web3'
-import ContributeForm from '../../components/ContributeForm'
+import { Card, Grid, Button } from "semantic-ui-react";
+import web3 from "web3";
+import ContributeForm from "../../components/ContributeForm";
+import { Router } from "../../routes.js";
+import { Link } from "../../routes";
 class CampaignShow extends Component {
   // this function will ba called intially
   // the address that we are sending as wildcard in out url
@@ -25,7 +27,6 @@ class CampaignShow extends Component {
     // return { contractSummary: contractSummary };
   }
   renderCards() {
-
     const {
       minimumContribution,
       balance,
@@ -36,54 +37,62 @@ class CampaignShow extends Component {
     const items = [
       {
         header: manager,
-        description: 'This is address of the individual who has created campaign',
+        description:
+          "This is address of the individual who has created campaign",
         meta: "Campaign manager",
-        style:{overflowWrap:'break-word'}
-
+        style: { overflowWrap: "break-word" }
       },
       {
-        header: web3.utils.fromWei(balance,'ether') +' (ether)',
-        description: 'Total Amount Presently in Campaign (wei)',
+        header: web3.utils.fromWei(balance, "ether") + " (ether)",
+        description: "Total Amount Presently in Campaign (wei)",
         meta: "Campaign Pool",
-        style:{overflowWrap:'break-word'}
-
+        style: { overflowWrap: "break-word" }
       },
       {
         header: approversCount,
-        description: 'Number of people who have contributed to campaign',
+        description: "Number of people who have contributed to campaign",
         meta: "Approvers Count",
-        style:{overflowWrap:'break-word'}
-
+        style: { overflowWrap: "break-word" }
       },
       {
         header: request,
-        description: 'Number of request pending for approval',
+        description: "Number of request pending for approval",
         meta: "Pending Request",
-        style:{overflowWrap:'break-word'}
-
+        style: { overflowWrap: "break-word" }
       },
       {
-        header: minimumContribution +' (wei)',
-        description: 'Minimum Contribution required to become approver',
+        header: minimumContribution + " (wei)",
+        description: "Minimum Contribution required to become approver",
         meta: "Minimum Contribution",
-        style:{overflowWrap:'break-word'}
-
+        style: { overflowWrap: "break-word" }
       }
     ];
 
     return <Card.Group items={items} />;
   }
+
   render() {
-    return <Layout>
-    <Grid>
-    <Grid.Column width={10}>
-      {this.renderCards()}
-      </Grid.Column>
-      <Grid.Column width={6}>
-      <ContributeForm address={this.props.address} />
-      </Grid.Column>
-      </Grid>
-    </Layout>;
+    return (
+      <Layout>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={10}>{this.renderCards()}</Grid.Column>
+            <Grid.Column width={6}>
+              <ContributeForm address={this.props.address} />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Link route={`/campaigns/${this.props.address}/requests`}>
+                <a>
+                  <Button primary>View Requests</Button>
+                </a>
+              </Link>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Layout>
+    );
   }
 }
 export default CampaignShow;
