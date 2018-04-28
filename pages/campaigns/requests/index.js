@@ -11,10 +11,11 @@ class CampaignRequests extends Component {
     const campaign = Campaign(props.query.address);
     const requestCount = await campaign.methods.getRequestsCounts().call();
     const approversCount=await campaign.methods.approversCount().call();
+    console.log(requestCount)
     // requests are stored as array of structures however solidity cannot
     // return array of structures so we need to fetch request one by one
     const requests = await Promise.all(
-      Array(requestCount)
+      Array(parseInt(requestCount))
         .fill()
         .map((element, index) => {
           return campaign.methods.requests(index).call();
@@ -33,7 +34,7 @@ class CampaignRequests extends Component {
   }
 
   displayRequests() {
-    console.log(this.props.approversCount)
+
     return this.props.requests.map((request,index)=>{
       return <RequestRow
       key={index}
@@ -49,7 +50,7 @@ class CampaignRequests extends Component {
         <h3>Requests</h3>
         <Link route={`/campaigns/${this.props.address}/requests/new`}>
           <a>
-            <Button primary>Add New Request</Button>
+            <Button primary floated="right" style={{marginBottom:'5px'}}>Add New Request</Button>
           </a>
         </Link>
 
@@ -70,7 +71,9 @@ class CampaignRequests extends Component {
        {this.displayRequests()}
        </Table.Body>
     </Table>
-
+    <div>
+    Found {this.props.requestCount} Requests
+    </div>
 
       </Layout>
     );

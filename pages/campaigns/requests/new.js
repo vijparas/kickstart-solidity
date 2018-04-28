@@ -9,7 +9,7 @@ class NewRequest extends Component{
   state={
     'description':'',
     'amount':'',
-    'receipent':'',
+    'recipient':'',
     'error':'',
     'loading':false
   }
@@ -31,14 +31,15 @@ class NewRequest extends Component{
 
       const campaign = Campaign(this.props.address);
       const accounts = await web3.eth.getAccounts();
-      const {description,address,amount}=this.state;
+      const {description,recipient,amount}=this.state;
+      alert(recipient);
       await campaign.methods.createRequest(description,
-        web3.utils.toWei(amount,'ether'),address).send({
+        web3.utils.toWei(amount,'ether'),recipient).send({
         from: accounts[0],
 
       });
       //Refresh the show component
-      Router.replaceRoute(`/campaigns/${this.props.address}`)
+      //Router.replaceRoute(`/campaigns/${this.props.address}`)
     } catch (err) {
 
       this.setState({ error: err.message });
@@ -85,9 +86,9 @@ class NewRequest extends Component{
             label="Address"
             labelPosition="right"
             placeholder="Address Of Receipent"
-            value={this.state.receipent}
+            value={this.state.recipient}
             onChange={event =>
-              this.setState({ receipent: event.target.value })
+              this.setState({ recipient: event.target.value })
             }
           />
         </Form.Field>

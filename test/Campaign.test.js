@@ -89,7 +89,8 @@ beforeEach(async()=>{
     });
     var requests=await campaign.methods.requests(0).call();
     assert.equal(requests.description,'Another test for checking if request is created');
-
+    assert.equal(requests.recipient,accounts[1])
+    console.log(requests.recipient);
     await campaign.methods.approveRequest(0).send({
       'from':accounts[3],
       'gas':'100000'
