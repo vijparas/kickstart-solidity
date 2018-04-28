@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Layout from "../../components/Layout";
 import Campaign from "../../ethereum/campaign";
-import { Card } from "semantic-ui-react";
+import { Card,Grid } from "semantic-ui-react";
 import web3 from 'web3'
+import ContributeForm from '../../components/ContributeForm'
 class CampaignShow extends Component {
   // this function will ba called intially
   // the address that we are sending as wildcard in out url
@@ -24,7 +25,7 @@ class CampaignShow extends Component {
     // return { contractSummary: contractSummary };
   }
   renderCards() {
-    console.log(this.props);
+
     const {
       minimumContribution,
       balance,
@@ -73,7 +74,16 @@ class CampaignShow extends Component {
     return <Card.Group items={items} />;
   }
   render() {
-    return <Layout>{this.renderCards()}</Layout>;
+    return <Layout>
+    <Grid>
+    <Grid.Column width={10}>
+      {this.renderCards()}
+      </Grid.Column>
+      <Grid.Column width={6}>
+      <ContributeForm address={this.props.address} />
+      </Grid.Column>
+      </Grid>
+    </Layout>;
   }
 }
 export default CampaignShow;
