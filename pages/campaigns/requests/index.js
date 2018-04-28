@@ -10,6 +10,7 @@ class CampaignRequests extends Component {
     // calling the function defindd in campaign.js
     const campaign = Campaign(props.query.address);
     const requestCount = await campaign.methods.getRequestsCounts().call();
+    const approversCount=await campaign.methods.approversCount().call();
     // requests are stored as array of structures however solidity cannot
     // return array of structures so we need to fetch request one by one
     const requests = await Promise.all(
@@ -24,17 +25,21 @@ class CampaignRequests extends Component {
     return {
       address: props.query.address,
       requestCount: requestCount,
-      requests: requests
+      requests: requests,
+      approversCount:approversCount
     };
     // const contractSummary = await factory.methods.getContractSummary().call();
     // return { contractSummary: contractSummary };
   }
 
   displayRequests() {
+    console.log(this.props.approversCount)
     return this.props.requests.map((request,index)=>{
       return <RequestRow
       key={index}
+      id={index}
       request={request}
+      approversCount={this.props.approversCount}
       address={this.props.address} />
     })
   }
